@@ -9,8 +9,8 @@
 #include "calc.h"
 #include <iostream>
 
-#define MAX_CHAR 100
-typedef char string[MAX_CHAR+1];
+#include <string>
+using namespace std;
 
 static ecall_dispatcher dispatcher;
 

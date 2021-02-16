@@ -1,0 +1,17 @@
+// Copyright (c) Open Enclave SDK contributors.
+// Licensed under the MIT License.
+
+enclave {
+    from "openenclave/edl/syscall.edl" import *;
+    from "platform.edl" import *;
+
+    trusted {
+        public void init_enclave(uint8_t max_value);
+        public void enclave_guess(
+            uint8_t input,
+            [out] bool* output);
+    };
+
+    untrusted {
+    };
+};

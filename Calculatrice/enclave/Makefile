@@ -23,8 +23,6 @@ build:
 	oeedger8r ../calc.edl --trusted \
 		--search-path $(INCDIR) \
 		--search-path $(INCDIR)/openenclave/edl/sgx
-	$(CXX) -g -c $(CXXFLAGS) -DOE_API_VERSION=2 -std=c++11 enc.cpp calc.cpp
-	$(CC) -g -c $(CFLAGS) -DOE_API_VERSION=2 calc_t.c -o calc_t.o
 	$(CXX) -o calcenc calc_t.o enc.o calc.o $(LDFLAGS) $(CRYPTO_LDFLAGS)
 
 sign:

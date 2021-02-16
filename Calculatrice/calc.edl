@@ -1,6 +1,7 @@
 enclave {
     from "openenclave/edl/syscall.edl" import *;
     from "platform.edl" import *;
+    from "/usr/local/include/string.h" import string;
 
     trusted {
         public void enclave_parser(

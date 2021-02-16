@@ -28,9 +28,6 @@ build:
 sign:
 	oesign sign -e calcenc -c calc.conf -k private.pem
 
-clean:
-	rm -f enc.o calcenc calcenc.signed private.pem public.pem calc_t.o calc_t.h calc_t.c calc_args.h
-
 keys:
 	openssl genrsa -out private.pem -3 3072
 	openssl rsa -in private.pem -pubout -out public.pem

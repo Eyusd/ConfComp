@@ -1,7 +1,8 @@
-#ifndef DEF_DISPATCHER
-#define DEF_DISPATCHER
 #include <string>
 using namespace std;
+
+#ifndef DEF_DISPATCHER
+#define DEF_DISPATCHER
 #include <openenclave/enclave.h>
 
 class ecall_dispatcher

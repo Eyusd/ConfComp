@@ -8,6 +8,7 @@
 #include <stdio.h>
 #include "calc.h"
 #include <string>
+using namespace std;
 
 static ecall_dispatcher dispatcher;
 

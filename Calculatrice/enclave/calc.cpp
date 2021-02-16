@@ -3,6 +3,7 @@
 #include <openenclave/enclave.h>
 #include <iostream>
 #include <string>
+using namespace std;
 
 double parser(string str, double* output){
     double res = 0;

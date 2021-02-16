@@ -2,7 +2,7 @@
 #include <string>
 
 using namespace std;
-double parser(string str){
+void parser(string str, double* output){
     double res = 0;
     string a,b;
     double anum,bnum;
@@ -33,7 +33,7 @@ double parser(string str){
         bnum = stof(b);
         res = anum/bnum;
     }
-    return res;
+    *output = res;
 }
 
 

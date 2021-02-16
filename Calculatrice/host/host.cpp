@@ -46,7 +46,7 @@ int main(int argc, const char* argv[])
     printf("Entre une operation : ");
     getline (cin, op);
 
-    result = enclave_parser(enclave, op, res);
+    result = enclave_parser(enclave, op, &res);
     if (result != OE_OK)
     {
         fprintf(

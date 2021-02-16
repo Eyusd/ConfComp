@@ -2,7 +2,6 @@
 # Licensed under the MIT License.
 
 include ../config.mk
-include <string>
 
 OE_CRYPTO_LIB := mbedtls
 CRYPTO_LDFLAGS := $(shell pkg-config oeenclave-$(COMPILER) --variable=${OE_CRYPTO_LIB}libs)

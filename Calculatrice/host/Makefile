@@ -2,7 +2,6 @@
 # Licensed under the MIT License.
 
 include ../config.mk
-include <string>
 
 CFLAGS=$(shell pkg-config oehost-$(COMPILER) --cflags)
 CXXFLAGS=$(shell pkg-config oeenclave-$(CXX_COMPILER) --cflags)

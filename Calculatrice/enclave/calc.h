@@ -3,6 +3,7 @@
 
 #include <openenclave/enclave.h>
 #include <string>
+#include <iostream>
 using namespace std;
 
 class ecall_dispatcher

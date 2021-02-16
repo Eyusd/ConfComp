@@ -56,7 +56,7 @@ int main(int argc, const char* argv[])
         goto exit;
     }
 
-    fprintf(result)
+    fprintf(res)
 
     ret = 0;
 

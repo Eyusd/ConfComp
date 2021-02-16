@@ -23,7 +23,6 @@ build:
 	oeedger8r ../calc.edl --trusted \
 		--search-path $(INCDIR) \
 		--search-path $(INCDIR)/openenclave/edl/sgx
-	$(CXX) -o calcenc calc_t.o enc.o calc.o $(LDFLAGS) $(CRYPTO_LDFLAGS)
 
 sign:
 	oesign sign -e calcenc -c calc.conf -k private.pem

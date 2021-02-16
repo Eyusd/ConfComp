@@ -43,5 +43,5 @@ int main()
     cout << "Entre une opération : ";
     getline (cin, op);
 
-    cout << parser(op);
+    cout << parser(op) << endl;
 }

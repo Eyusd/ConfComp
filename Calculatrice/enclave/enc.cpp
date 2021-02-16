@@ -7,6 +7,7 @@
 #include "calc_t.h"
 #include <stdio.h>
 #include "calc.h"
+#include <string>
 
 static ecall_dispatcher dispatcher;
 

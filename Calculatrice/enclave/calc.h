@@ -2,6 +2,7 @@
 #define DEF_DISPATCHER
 
 #include <openenclave/enclave.h>
+#include <string>
 
 class ecall_dispatcher
 {

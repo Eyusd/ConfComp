@@ -1,4 +1,4 @@
-#include <string>
+#include <string.h>
 using namespace std;
 #include "calc.h"
 #include <stdio.h>

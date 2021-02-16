@@ -1,6 +1,6 @@
 // Copyright (c) Open Enclave SDK contributors.
 // Licensed under the MIT License.
-#include <string>
+#include <string.h>
 using namespace std;
 #include <openenclave/host.h>
 #include <stdio.h>

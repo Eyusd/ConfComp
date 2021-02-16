@@ -10,7 +10,7 @@ INCDIR=$(shell pkg-config oehost-$(COMPILER) --variable=includedir)
 
 build:
 	@ echo "Compilers used: $(CC), $(CXX)"
-	oeedger8r ../guess.edl --untrusted \
+	oeedger8r ../calc.edl --untrusted \
 		--search-path $(INCDIR) \
 		--search-path $(INCDIR)/openenclave/edl/sgx
 	$(CXX) -g -c $(CXXFLAGS) host.cpp

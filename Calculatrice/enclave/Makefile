@@ -23,9 +23,15 @@ build:
 	oeedger8r ../calc.edl --trusted \
 		--search-path $(INCDIR) \
 		--search-path $(INCDIR)/openenclave/edl/sgx
+	$(CXX) -g -c $(CXXFLAGS) -DOE_API_VERSION=2 -std=c++11 enc.cpp calc.cpp
+	$(CC) -g -c $(CFLAGS) -DOE_API_VERSION=2 calc_t.c -o calc_t.o
+	$(CXX) -o calcenc calc_t.o enc.o calc.o $(LDFLAGS) $(CRYPTO_LDFLAGS)
 
 sign:
 	oesign sign -e calcenc -c calc.conf -k private.pem
+
+clean:
+	rm -f enc.o calcenc calcenc.signed private.pem public.pem calc_t.o calc_t.h calc_t.c calc_args.h
 
 keys:
 	openssl genrsa -out private.pem -3 3072

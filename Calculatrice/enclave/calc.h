@@ -2,9 +2,9 @@
 #define DEF_DISPATCHER
 
 #include <openenclave/enclave.h>
-#include <string>
-#include <iostream>
-using namespace std;
+
+#define MAX_CHAR 100
+typedef char string[MAX_CHAR+1];
 
 class ecall_dispatcher
 {

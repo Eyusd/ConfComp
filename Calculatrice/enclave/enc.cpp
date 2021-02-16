@@ -7,9 +7,10 @@
 #include "calc_t.h"
 #include <stdio.h>
 #include "calc.h"
-#include <string>
 #include <iostream>
-using namespace std;
+
+#define MAX_CHAR 100
+typedef char string[MAX_CHAR+1];
 
 static ecall_dispatcher dispatcher;
 

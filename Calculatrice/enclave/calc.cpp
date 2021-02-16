@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <openenclave/enclave.h>
 #include <iostream>
-#include <string>
-using namespace std;
+
+#define MAX_CHAR 100
+typedef char string[MAX_CHAR+1];
 
 double parser(string str, double* output){
     double res = 0;

@@ -1,9 +1,8 @@
 // Copyright (c) Open Enclave SDK contributors.
 // Licensed under the MIT License.
-#include <string.h>
+#include <string>
 using namespace std;
 #include <openenclave/host.h>
-#include <stdio.h>
 #include <iostream>
 
 // Include the untrusted helloworld header that is generated

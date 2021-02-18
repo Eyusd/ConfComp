@@ -1,7 +1,6 @@
-#include <string.h>
+#include <string>
 using namespace std;
 #include "calc.h"
-#include <stdio.h>
 #include <openenclave/enclave.h>
 #include <iostream>
 

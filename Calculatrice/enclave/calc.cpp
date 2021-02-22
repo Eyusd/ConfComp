@@ -1,45 +1,54 @@
-#include <string>
-using namespace std;
 #include "calc.h"
 #include <openenclave/enclave.h>
 #include <iostream>
 
-double parser(string str, double* output){
+int find(char s[256], char ch){
+	int i = 0;
+	int len = 256;
+
+	for(i = 0; i < len; i++) if(s[i] == ch) return i;
+
+	return -1;
+}
+
+double parser(char str[256], double* output){
     double res = 0;
-    string a,b;
+    int a,b
     double anum,bnum;
 
-    if (str.find('+') != -1) {
-        a = str.substr(0, str.find('+'));
-        b = str.substr(str.find('+')+1, str.length());
-        anum = stof(a);
-        bnum = stof(b);
+    if (find(str, '+') != -1) {
+        a = atoi(str);
+        b = atoi(str+find(str,'+')+1);
+        anum = (double) a;
+        bnum = (double) b;
         res = anum+bnum;
     }
-    if (str.find('-') != -1) {
-        a = str.substr(0, str.find('-'));
-        b = str.substr(str.find('-')+1, str.length());
-        anum = stof(a);
-        bnum = stof(b);
+    if (find(str, '-') != -1) {
+        a = atoi(str);
+        b = atoi(str+find(str,'-')+1);
+        anum = (double) a;
+        bnum = (double) b;
         res = anum-bnum;
     }
-    if (str.find('*') != -1) {
-        a = str.substr(0, str.find('*'));
-        b = str.substr(str.find('*')+1, str.length());
+    if (find(str, '*') != -1) {
+        a = atoi(str);
+        b = atoi(str+find(str,'*')+1);
+        anum = (double) a;
+        bnum = (double) b;
         res = anum*bnum;
     }
-    if (str.find('/') != -1) {
-        a = str.substr(0, str.find('/'));
-        b = str.substr(str.find('/')+1, str.length());
-        anum = stof(a);
-        bnum = stof(b);
+    if (find(str, '/') != -1) {
+        a = atoi(str);
+        b = atoi(str+find(str,'/')+1);
+        anum = (double) a;
+        bnum = (double) b;
         res = anum/bnum;
     }
     return res;
 }
 
 
-double ecall_dispatcher::parser(string str)
+double ecall_dispatcher::parser(char* str)
 {
     return parser(str);
 }

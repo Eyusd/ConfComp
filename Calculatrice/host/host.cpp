@@ -1,7 +1,5 @@
 // Copyright (c) Open Enclave SDK contributors.
 // Licensed under the MIT License.
-#include <string>
-using namespace std;
 #include <openenclave/host.h>
 #include <iostream>
 
@@ -17,7 +15,7 @@ int main(int argc, const char* argv[])
     oe_enclave_t* enclave = NULL;
 
     uint32_t flags = OE_ENCLAVE_FLAG_DEBUG;
-    string op;
+    char op[256];
     double res;
 
     if (argc != 2)
@@ -42,7 +40,7 @@ int main(int argc, const char* argv[])
 
     // Call into the enclave
     printf("Entre une operation : ");
-    getline (cin, op);
+    std::cin.getline(op, 256);
 
     result = enclave_parser(enclave, op, res);
     if (result != OE_OK)

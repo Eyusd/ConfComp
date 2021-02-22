@@ -1,6 +1,3 @@
-#include <string>
-using namespace std;
-
 #ifndef DEF_DISPATCHER
 #define DEF_DISPATCHER
 #include <openenclave/enclave.h>
@@ -8,7 +5,7 @@ using namespace std;
 class ecall_dispatcher
 {
     public:
-        double parser(string str);
+        double parser(char* str);
 };
 
 #endif

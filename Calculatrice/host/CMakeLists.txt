@@ -10,7 +10,7 @@ add_executable(calc_host host.cpp
                                ${CMAKE_CURRENT_BINARY_DIR}/calc_u.c)
 
 target_include_directories(
-  calc_host PRIVATE # Needed for the generated file calc_u.h
-                          ${CMAKE_CURRENT_BINARY_DIR})
+  calc_host PRIVATE
+    ${CMAKE_CURRENT_BINARY_DIR})
 
 target_link_libraries(calc_host openenclave::oehost)

@@ -1,3 +1,4 @@
+project(Calculatrice)
 cmake_minimum_required(VERSION 3.18)
 find_package(OpenEnclave CONFIG REQUIRED)
 
@@ -22,6 +23,9 @@ add_custom_command(OUTPUT private.pem public.pem
 add_custom_command(OUTPUT example_enclave.signed
   DEPENDS example_enclave calc.conf private.pem
   COMMAND openenclave::oesign sign -e $<TARGET_FILE:example_enclave> -c ${CMAKE_CURRENT_SOURCE_DIR}/calc.conf -k private.pem)
+
+add_custom_target(signed_example_enclave ALL
+  DEPENDS example_enclave.signed)
 
 add_executable(example_host host.cpp calc_u.c)
 target_link_libraries(example_host openenclave::oehost)

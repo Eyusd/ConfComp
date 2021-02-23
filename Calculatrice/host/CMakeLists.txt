@@ -1,6 +1,6 @@
 add_custom_command(
   OUTPUT calc_u.h calc_u.c calc_args.h
-  DEPENDS ${CMAKE_SOURCE_DIR}/helloworld.edl
+  DEPENDS ${CMAKE_SOURCE_DIR}/calc.edl
   COMMAND
     openenclave::oeedger8r --untrusted ${CMAKE_SOURCE_DIR}/calc.edl
     --search-path ${OE_INCLUDEDIR} --search-path

@@ -1,31 +1,61 @@
-project(Calculette)
-cmake_minimum_required(VERSION 3.18)
+cmake_minimum_required(VERSION 3.11)
+
+if (LVI_MITIGATION MATCHES ControlFlow)
+  # Configure the cmake to use customized compilation toolchain.
+  # This package has to be added before `project()`.
+  find_package(OpenEnclave-LVI-Mitigation CONFIG REQUIRED)
+else ()
+  # Setting the cmake compiler when LVI mitigation is not enabled. If the CC
+  # environment variable has been specified or the if CMAKE_C_COMPILER cmake
+  # variable has been passed to cmake, use the C compiler that has been specified.
+  # Otherwise, prefer clang. Same for C++ compiler. This must be done before
+  # the `project` command.
+  if (UNIX)
+    if (NOT DEFINED ENV{CC} AND NOT DEFINED CMAKE_C_COMPILER)
+      find_program(CMAKE_C_COMPILER clang-8 clang)
+    endif ()
+    if (NOT DEFINED ENV{CXX} AND NOT DEFINED CMAKE_CXX_COMPILER)
+      find_program(CMAKE_CXX_COMPILER clang++-8 clang++)
+    endif ()
+  endif ()
+endif ()
+
+project("Calculette" LANGUAGES C CXX)
+
+# Currently the `OpenEnclave` package depends on `project()`.
 find_package(OpenEnclave CONFIG REQUIRED)
 
-# Trusted bindings for the enclave
-add_custom_command(OUTPUT calc_t.h calc_t.c calc.h
-  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/calc.edl
-  COMMAND openenclave::oeedger8r --trusted ${CMAKE_CURRENT_SOURCE_DIR}/calc.edl)
+set(CMAKE_CXX_STANDARD 11)
+set(OE_CRYPTO_LIB
+    mbedtls
+    CACHE STRING "Crypto library used by enclaves.")
 
-# Untrusted bindings for the host
-add_custom_command(OUTPUT calc_u.h calc_u.c calc.h
-  DEPENDS ${CMAKE_CURRENT_SOURCE_DIR}/calc.edl
-  COMMAND openenclave::oeedger8r --untrusted ${CMAKE_CURRENT_SOURCE_DIR}/calc.edl)
+add_subdirectory(enclave)
+add_subdirectory(host)
 
-add_executable(example_enclave calc.cpp calc_t.c)
-target_link_libraries(example_enclave openenclave::oeenclave openenclave::oelibcxx)
-
-# NOTE: This is a self-signed certificate only for demonstration.
-add_custom_command(OUTPUT private.pem public.pem
+# Generate key
+add_custom_command(
+  OUTPUT private.pem public.pem
   COMMAND openssl genrsa -out private.pem -3 3072
   COMMAND openssl rsa -in private.pem -pubout -out public.pem)
 
-add_custom_command(OUTPUT example_enclave.signed
-  DEPENDS example_enclave calc.conf private.pem
-  COMMAND openenclave::oesign sign -e $<TARGET_FILE:example_enclave> -c ${CMAKE_CURRENT_SOURCE_DIR}/calc.conf -k private.pem)
+# Sign enclave
+add_custom_command(
+  OUTPUT enclave/enclave.signed
+  DEPENDS enclave enclave/calc.conf private.pem
+  COMMAND openenclave::oesign sign -e $<TARGET_FILE:enclave> -c
+          ${CMAKE_SOURCE_DIR}/enclave/calc.conf -k private.pem)
 
-add_custom_target(signed_example_enclave ALL
-  DEPENDS example_enclave.signed)
+add_custom_target(sign ALL DEPENDS enclave/enclave.signed)
 
-add_executable(example_host host.cpp calc_u.c)
-target_link_libraries(example_host openenclave::oehost)
+if ((NOT DEFINED ENV{OE_SIMULATION}) OR (NOT $ENV{OE_SIMULATION}))
+  add_custom_target(
+    run
+    DEPENDS helloworld_host sign
+    COMMAND helloworld_host ${CMAKE_BINARY_DIR}/enclave/enclave.signed)
+endif ()
+
+add_custom_target(
+  simulate
+  DEPENDS helloworld_host sign
+  COMMAND helloworld_host ${CMAKE_BINARY_DIR}/enclave/enclave.signed --simulate)

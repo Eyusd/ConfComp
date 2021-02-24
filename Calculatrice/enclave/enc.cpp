@@ -16,5 +16,5 @@ static ecall_dispatcher dispatcher;
 
 void enclave_parser(char* str, double* output)
 {
-    *output = dispatcher.parser(str);
+    *output = *dispatcher.parser(str);
 }

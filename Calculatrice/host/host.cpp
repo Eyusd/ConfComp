@@ -53,7 +53,7 @@ int main(int argc, const char* argv[])
         goto exit;
     }
 
-    fprintf(res)
+    fprintf(stderr, res);
 
     ret = 0;
 

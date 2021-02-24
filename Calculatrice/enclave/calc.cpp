@@ -11,7 +11,7 @@ int find(char s[256], char ch){
 	return -1;
 }
 
-double parser(char str[256], double* output){
+double parser(char str[256]){
     double res = 0;
     int a,b
     double anum,bnum;

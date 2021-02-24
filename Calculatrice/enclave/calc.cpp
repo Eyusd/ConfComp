@@ -13,8 +13,10 @@ int find(char s[256], char ch){
 
 double parser(char str[256]){
     double res = 0;
-    int a,b
-    double anum,bnum;
+    int a;
+    int b;
+    double anum;
+    double bnum;
 
     if (find(str, '+') != -1) {
         a = atoi(str);

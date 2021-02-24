@@ -1,7 +1,6 @@
 
 #include "calc_t.h"
 #include "calc.h"
-#include "calc.cpp"
 #include <iostream>
 
 static ecall_dispatcher dispatcher;

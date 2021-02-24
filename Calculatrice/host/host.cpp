@@ -17,6 +17,7 @@ int main(int argc, const char* argv[])
     uint32_t flags = OE_ENCLAVE_FLAG_DEBUG;
     char op[256];
     double* res;
+    float conv;
 
     if (argc != 2)
     {
@@ -52,8 +53,8 @@ int main(int argc, const char* argv[])
             oe_result_str(result));
         goto exit;
     }
-
-    fprintf(stderr, res);
+    conv = (float) res;
+    fprintf(stderr, conv);
 
     ret = 0;
 

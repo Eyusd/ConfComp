@@ -14,7 +14,7 @@ static ecall_dispatcher dispatcher;
 // a message in the enclave before calling back out to
 // the host to print a message from there too.
 
-void enclave_parser(char* str, bool* output)
+void enclave_parser(char* str, double* output)
 {
     *output = dispatcher.parser(str);
 }

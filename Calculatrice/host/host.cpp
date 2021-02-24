@@ -16,7 +16,7 @@ int main(int argc, const char* argv[])
 
     uint32_t flags = OE_ENCLAVE_FLAG_DEBUG;
     char op[256];
-    double res;
+    double* res;
 
     if (argc != 2)
     {

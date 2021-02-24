@@ -5,7 +5,7 @@
 class ecall_dispatcher
 {
     public:
-        double parser(char* str);
+        double* parser(char* str);
 };
 
 #endif

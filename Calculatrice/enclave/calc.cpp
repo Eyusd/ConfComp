@@ -11,44 +11,44 @@ int find(char s[256], char ch){
 	return -1;
 }
 
-double parser(char str[256], double* output){
+double* parser(char str[256], double* output){
     double res = 0;
     int a,b
-    double anum,bnum;
+    double* anum,bnum;
 
     if (find(str, '+') != -1) {
         a = atoi(str);
         b = atoi(str+find(str,'+')+1);
-        anum = (double) a;
-        bnum = (double) b;
+        anum = (double*) a;
+        bnum = (double*) b;
         res = anum+bnum;
     }
     if (find(str, '-') != -1) {
         a = atoi(str);
         b = atoi(str+find(str,'-')+1);
-        anum = (double) a;
-        bnum = (double) b;
+        anum = (double*) a;
+        bnum = (double*) b;
         res = anum-bnum;
     }
     if (find(str, '*') != -1) {
         a = atoi(str);
         b = atoi(str+find(str,'*')+1);
-        anum = (double) a;
-        bnum = (double) b;
+        anum = (double*) a;
+        bnum = (double*) b;
         res = anum*bnum;
     }
     if (find(str, '/') != -1) {
         a = atoi(str);
         b = atoi(str+find(str,'/')+1);
-        anum = (double) a;
-        bnum = (double) b;
+        anum = (double*) a;
+        bnum = (double*) b;
         res = anum/bnum;
     }
     return res;
 }
 
 
-double ecall_dispatcher::parser(char* str)
+double* ecall_dispatcher::parser(char* str)
 {
     return parser(str);
 }

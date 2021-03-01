@@ -8,6 +8,8 @@
 // sdk tool oeedger8r against the helloworld.edl file.
 #include "calc_u.h"
 
+using namespace std;
+
 int main(int argc, const char* argv[])
 {
     oe_result_t result;
@@ -39,8 +41,8 @@ int main(int argc, const char* argv[])
     }
 
     // Call into the enclave
-    printf("Entre une operation : ");
-    std::cin.getline(op, 256);
+    printf("Entre une operation : \n");
+    fgets(op, 256, stdin);
 
     result = enclave_parser(enclave, op, res);
     if (result != OE_OK)

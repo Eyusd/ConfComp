@@ -11,8 +11,9 @@ int find(char s[256], char ch){
 	return -1;
 }
 
-double parsing(char str[256]){
-    double res = 0;
+double ecall_dispatcher::parser(char* str)
+{
+    double res = 1;
     int a;
     int b;
     double anum;
@@ -46,15 +47,9 @@ double parsing(char str[256]){
         bnum = (double) b;
         res = anum/bnum;
     }
-    return res;
-}
 
-
-double ecall_dispatcher::parser(char* str)
-{
-    double res;
     float f;
-    res = parsing(str);
     f = (float) res;
+
     return f;
 }

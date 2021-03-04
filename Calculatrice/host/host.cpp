@@ -18,7 +18,7 @@ int main(int argc, const char* argv[])
 
     uint32_t flags = OE_ENCLAVE_FLAG_DEBUG;
     char op[256];
-    double* res;
+    double res;
 
     if (argc != 2)
     {
@@ -44,7 +44,7 @@ int main(int argc, const char* argv[])
     printf("Entre une operation : \n");
     fgets(op, 256, stdin);
 
-    result = enclave_parser(enclave, op, res);
+    result = enclave_parser(enclave, op, &res);
     if (result != OE_OK)
     {
         fprintf(
@@ -55,7 +55,7 @@ int main(int argc, const char* argv[])
         goto exit;
     }
 
-    fprintf(stderr, "%lf", *res);
+    fprintf(stderr, "%lf", res);
 
     ret = 0;
 

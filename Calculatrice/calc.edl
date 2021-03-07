@@ -4,7 +4,7 @@ enclave {
 
     trusted {
         public void enclave_parser(
-            [in] char* str,
+            [in] char str [256],
             [out] double* output);
     };
 

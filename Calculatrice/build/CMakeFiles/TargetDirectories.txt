@@ -1,0 +1,11 @@
+/home/eyusd/ConfComp/Calculatrice/build/CMakeFiles/edit_cache.dir
+/home/eyusd/ConfComp/Calculatrice/build/CMakeFiles/simulate.dir
+/home/eyusd/ConfComp/Calculatrice/build/CMakeFiles/run.dir
+/home/eyusd/ConfComp/Calculatrice/build/CMakeFiles/rebuild_cache.dir
+/home/eyusd/ConfComp/Calculatrice/build/CMakeFiles/sign.dir
+/home/eyusd/ConfComp/Calculatrice/build/enclave/CMakeFiles/rebuild_cache.dir
+/home/eyusd/ConfComp/Calculatrice/build/enclave/CMakeFiles/edit_cache.dir
+/home/eyusd/ConfComp/Calculatrice/build/enclave/CMakeFiles/enclave.dir
+/home/eyusd/ConfComp/Calculatrice/build/host/CMakeFiles/edit_cache.dir
+/home/eyusd/ConfComp/Calculatrice/build/host/CMakeFiles/rebuild_cache.dir
+/home/eyusd/ConfComp/Calculatrice/build/host/CMakeFiles/calc_host.dir

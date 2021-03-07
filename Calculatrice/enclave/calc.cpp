@@ -11,9 +11,9 @@ int find(char s[256], char ch){
 	return -1;
 }
 
-double ecall_dispatcher::parser(char* str)
+double ecall_dispatcher::parser(char str[256])
 {
-    double res = 1;
+    double res = 2;
     int a;
     int b;
     double anum;

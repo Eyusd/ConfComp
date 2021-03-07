@@ -1,0 +1,22 @@
+[
+{
+  "directory": "/home/eyusd/ConfComp/Calculatrice/build",
+  "command": "/usr/bin/clang++-8 -DOE_API_VERSION=2 -DOE_BUILD_ENCLAVE -Ienclave -isystem /opt/openenclave/include -isystem /opt/openenclave/include/openenclave/3rdparty/libcxx -isystem /opt/openenclave/include/openenclave/3rdparty/libc -isystem /opt/openenclave/include/openenclave/3rdparty -g -m64 -fPIE -nostdinc -fstack-protector-strong -fvisibility=hidden -fno-omit-frame-pointer -ffunction-sections -fdata-sections -ftls-model=local-exec -nostdinc++ -mllvm -x86-speculative-load-hardening -std=gnu++11 -o enclave/CMakeFiles/enclave.dir/enc.cpp.o -c /home/eyusd/ConfComp/Calculatrice/enclave/enc.cpp",
+  "file": "/home/eyusd/ConfComp/Calculatrice/enclave/enc.cpp"
+},
+{
+  "directory": "/home/eyusd/ConfComp/Calculatrice/build",
+  "command": "/usr/bin/clang-8 -DOE_API_VERSION=2 -DOE_BUILD_ENCLAVE -Ienclave -isystem /opt/openenclave/include -isystem /opt/openenclave/include/openenclave/3rdparty/libc -isystem /opt/openenclave/include/openenclave/3rdparty -g -m64 -fPIE -nostdinc -fstack-protector-strong -fvisibility=hidden -fno-omit-frame-pointer -ffunction-sections -fdata-sections -ftls-model=local-exec -mllvm -x86-speculative-load-hardening -o enclave/CMakeFiles/enclave.dir/calc_t.c.o -c /home/eyusd/ConfComp/Calculatrice/build/enclave/calc_t.c",
+  "file": "/home/eyusd/ConfComp/Calculatrice/build/enclave/calc_t.c"
+},
+{
+  "directory": "/home/eyusd/ConfComp/Calculatrice/build",
+  "command": "/usr/bin/clang++-8 -Ihost -isystem /opt/openenclave/include -g -fstack-protector-strong -std=gnu++11 -o host/CMakeFiles/calc_host.dir/host.cpp.o -c /home/eyusd/ConfComp/Calculatrice/host/host.cpp",
+  "file": "/home/eyusd/ConfComp/Calculatrice/host/host.cpp"
+},
+{
+  "directory": "/home/eyusd/ConfComp/Calculatrice/build",
+  "command": "/usr/bin/clang-8 -Ihost -isystem /opt/openenclave/include -g -fstack-protector-strong -o host/CMakeFiles/calc_host.dir/calc_u.c.o -c /home/eyusd/ConfComp/Calculatrice/build/host/calc_u.c",
+  "file": "/home/eyusd/ConfComp/Calculatrice/build/host/calc_u.c"
+}
+]
